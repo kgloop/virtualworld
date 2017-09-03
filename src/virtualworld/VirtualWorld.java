@@ -27,7 +27,7 @@ public class VirtualWorld {
                 break;
             }
         }*/
-       
+       //Pozdro Ola
        World world = new World(); //utworzenie obiektu klasy world (utworzenie świata)
        while (true){
            world.executeTurn(); //charakter turowy gry, pętla będzie się cały czas wykonywać - metode
