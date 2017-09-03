@@ -5,6 +5,7 @@
  */
 package virtualworld.organisms.animals;
 
+import java.awt.Point;
 import virtualworld.World;
 
 /**
@@ -13,8 +14,8 @@ import virtualworld.World;
  */
 public class Turtle extends Animal {
     
-    public Turtle(World world){
-        super(world);
+    public Turtle(World world, Point position){
+        super(world, position);
         this.force = 2;
         this.initiative = 1;
     }

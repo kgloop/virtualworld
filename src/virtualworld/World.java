@@ -5,39 +5,53 @@
  */
 package virtualworld;
 
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
 import virtualworld.organisms.Organism;
+import virtualworld.organisms.animals.Wolf;
 
 /**
  *
  * @author Aleksandra
  */
 public class World {
-    private Organism[][] organisms;
+    private List<Organism> organisms;
     private static final int WORLD_SIZE = 20;
     
     public World() {
-        this.organisms = new Organism[WORLD_SIZE][WORLD_SIZE]; //określenie rozmiaru tablicy organisms i jednoczesne utworzenie obiektu organisms
+        //this.organisms = new Organism[WORLD_SIZE][WORLD_SIZE]; //określenie rozmiaru tablicy organisms i jednoczesne utworzenie obiektu organisms
+        this.organisms = new ArrayList<>();
+        this.organisms.add(new Wolf(this, new Point(3,4)));
         this.cleanupOrganisms(); //każdy utworzony nowy świat będzie wyczyszczony z organizmów
     
     }
     
     public void executeTurn(){
         //przejrzeć całą tablicę i jeżeli na aktualnie przeszukiwanym polu istnieje jakikolwiek organizm, wtedy należy wykonać akcję
+        for (Organism organism : this.organisms) { //dla każdego organism klasy Organism i dla której listy
+            organism.action();
+        }
     }
     
     public void drawWorld(){
         
     }
 
-    public Organism[][] getOrganisms(){ 
+    public List<Organism> getOrganisms(){ 
         return this.organisms;
     }
 
     private void cleanupOrganisms() {
-        for (int i = 0; i < WORLD_SIZE; i++) { //kolumny
-            for (int j = 0; j < WORLD_SIZE; j++) { //wiersze
-                this.organisms[i][j] = null; //czyszczenie pól świata poprzez przypisanie im wartości NULL
-            }
-        }
+        this.organisms.clear();
+    }
+    
+    public boolean isOrganismAtPoint(Point position){
+      for(Organism organism : this.organisms){
+          if(organism.getPosition() == position){
+              return true;
+          }
+      }
+      return false;
     }
 }

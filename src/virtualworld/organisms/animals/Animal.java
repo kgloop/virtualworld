@@ -15,58 +15,22 @@ import virtualworld.organisms.Organism;
  * @author Aleksandra
  */
 public abstract class Animal extends Organism {
-    private int step;
-    public Animal(World worldWhereAnimalLive){
+    
+    public Animal(World worldWhereAnimalLive, Point position){
         this.world = worldWhereAnimalLive;
-        Point position = new Point(1,1);
-    }     
+        this.position = position;
+    }  
+    
     @Override
     public void action(){        
-        Random rand = new Random();         
-        this.step = rand.nextInt(7)+1;  
-        if(step == 1){
-            int x = 0;
-            int y = 0;
-            if(this.world.getOrganisms()[x][y+1] == null){
-                this.world.getOrganisms()[x][y+1] = this;
-            }
-        else if(step == 2){
-            if(this.world.getOrganisms()[x+1][y+1] == null){
-                this.world.getOrganisms()[x+1][y+1] = this;
-            }
+        Point newPosition = this.getNewPosition();
+        
+        if(this.world.isOrganismAtPoint(newPosition)){
+            //kolizja na organiźmie
         }
-        else if(step == 3){
-            if(this.world.getOrganisms()[x+1][y] == null){
-                this.world.getOrganisms()[x+1][y] = this;
-            }
+        else{
+            this.setPosition(newPosition); //ustawienie nowej pozycji na Animal (samym sobie)
         }
-        else if(step == 4){
-            if(this.world.getOrganisms()[x+1][y-1] == null){
-                this.world.getOrganisms()[x+1][y-1] = this;
-            }
-        }
-        else if(step == 5){
-            if(this.world.getOrganisms()[x][y-1] == null){
-                this.world.getOrganisms()[x][y-1] = this;
-            }
-        }
-        else if(step == 6){
-            if(this.world.getOrganisms()[x-1][y-1] == null){
-                this.world.getOrganisms()[x-1][y-1] = this;
-            }
-        }
-        else if(step == 7){
-            if(this.world.getOrganisms()[x-1][y] == null){
-                this.world.getOrganisms()[x-1][y] = this;
-            }
-        }
-        else if(step == 8){
-            if(this.world.getOrganisms()[x-1][y+1] == null){
-                this.world.getOrganisms()[x-1][y+1] = this;
-            }
-        }
-        }
-   
     }
     
     @Override

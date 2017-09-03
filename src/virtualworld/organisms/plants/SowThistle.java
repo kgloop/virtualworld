@@ -17,6 +17,7 @@ public class SowThistle extends Plant{
         this.force = 0;
         this.initiative = 0;
         this.world = world;
+        this.type = ORGANISM_TYPE.SOW_THISTLE;
     }
     
     @Override
