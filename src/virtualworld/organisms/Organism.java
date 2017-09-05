@@ -102,12 +102,13 @@ public abstract class Organism {
                 break;
             case SOW_THISTLE:
                 return new SowThistle(world);
-                break;
+               // break;
             case DEADLY_NIGHTSHADE:
                 break;
             default:
                 throw new AssertionError(type.name());
         }
+        return null;
                 
     }
 }

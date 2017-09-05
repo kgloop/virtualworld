@@ -18,11 +18,11 @@ public abstract class Plant extends Organism {
     @Override
     public void action(){
         Random rand = new Random();
-        int spreadingOutProbability = rand.nextInt(100) + 1;
-        if (spreadingOutProbability > 60) {
+        int spreadingOutProbability = rand.nextInt(100) + 1; //losuję z przedziału 1 do 100 prawdopodobieństwo rozsiania się rośliny
+        if (spreadingOutProbability > 60) { //jeżeli prawdopodobieństwo jest większe od określonej liczby
             Point newPosition = this.getNewPosition();
-            if(!this.world.isOrganismAtPoint(newPosition)){
-                Plant plant = this.getNewPlant(this.getType());
+            if(!this.world.isOrganismAtPoint(newPosition)){ //jeżeli nie ma na nowej pozycji organizmu w tym świecie
+                Plant plant = (Plant) this.getNewOrganism(this.getType());
                 this.world.getOrganisms().add(plant);
             }
         }   
