@@ -5,6 +5,7 @@
  */
 package virtualworld.organisms.plants;
 
+import java.awt.Point;
 import virtualworld.World;
 
 /**
@@ -13,7 +14,7 @@ import virtualworld.World;
  */
 public class Guarana extends Plant {
     
-    public Guarana(World word){
+    public Guarana(World word, Point position){
         this.force = 0;
         this.initiative = 0;
         this.world = world;

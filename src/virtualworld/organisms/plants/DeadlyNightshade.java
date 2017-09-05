@@ -5,6 +5,7 @@
  */
 package virtualworld.organisms.plants;
 
+import java.awt.Point;
 import virtualworld.World;
 
 /**
@@ -12,7 +13,7 @@ import virtualworld.World;
  * @author Aleksandra
  */
 public class DeadlyNightshade extends Plant {
-    public DeadlyNightshade(World world){
+    public DeadlyNightshade(World world, Point position){
         this.force = 99;
         this.initiative = 0;
         this.world = world;

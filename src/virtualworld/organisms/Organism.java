@@ -8,6 +8,14 @@ package virtualworld.organisms;
 import java.awt.Point;
 import java.util.Random;
 import virtualworld.World;
+import virtualworld.organisms.animals.Antelope;
+import virtualworld.organisms.animals.Fox;
+import virtualworld.organisms.animals.Sheep;
+import virtualworld.organisms.animals.Turtle;
+import virtualworld.organisms.animals.Wolf;
+import virtualworld.organisms.plants.DeadlyNightshade;
+import virtualworld.organisms.plants.Grass;
+import virtualworld.organisms.plants.Guarana;
 import virtualworld.organisms.plants.SowThistle;
 
 /**
@@ -87,28 +95,35 @@ public abstract class Organism {
     public Organism getNewOrganism(ORGANISM_TYPE type) {
         switch(type) {
             case WOLF:
-                break;
+                return new Wolf(world, position);
+               // break;
             case SHEEP:
-                break;
+                return new Sheep(world, position);
+               // break;
             case ANTHELOPE:
-                break;
+                return new Antelope(world, position);
+               // break;
             case FOX:
-                break;
+                return new Fox(world, position);
+               // break;
             case TURTLE:
-                break;
+                return new Turtle(world, position);
+               // break;
             case GRASS:
-                break;
+                return new Grass(world, position);
+               // break;
             case GUARANA:
-                break;
+                return new Guarana(world, position);
+               // break;
             case SOW_THISTLE:
-                return new SowThistle(world);
+                return new SowThistle(world, position);
                // break;
             case DEADLY_NIGHTSHADE:
-                break;
+                return new DeadlyNightshade(world, position);
+               // break;
             default:
                 throw new AssertionError(type.name());
         }
-        return null;
                 
     }
 }
