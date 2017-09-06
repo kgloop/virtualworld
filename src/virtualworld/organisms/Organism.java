@@ -92,35 +92,26 @@ public abstract class Organism {
         return this.type;
     }
     
-    public Organism getNewOrganism(ORGANISM_TYPE type) {
+    public Organism getNewOrganism(ORGANISM_TYPE type, Point position) {
         switch(type) {
             case WOLF:
                 return new Wolf(world, position);
-               // break;
             case SHEEP:
                 return new Sheep(world, position);
-               // break;
             case ANTHELOPE:
                 return new Antelope(world, position);
-               // break;
             case FOX:
                 return new Fox(world, position);
-               // break;
             case TURTLE:
                 return new Turtle(world, position);
-               // break;
             case GRASS:
                 return new Grass(world, position);
-               // break;
             case GUARANA:
                 return new Guarana(world, position);
-               // break;
             case SOW_THISTLE:
                 return new SowThistle(world, position);
-               // break;
             case DEADLY_NIGHTSHADE:
                 return new DeadlyNightshade(world, position);
-               // break;
             default:
                 throw new AssertionError(type.name());
         }
