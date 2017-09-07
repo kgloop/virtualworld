@@ -22,7 +22,7 @@ public abstract class Plant extends Organism {
         if (spreadingOutProbability > 60) { //jeżeli prawdopodobieństwo jest większe od określonej liczby
             Point newPosition = this.getNewPosition();
             if(!this.world.isOrganismAtPoint(newPosition)){ //jeżeli nie ma na nowej pozycji organizmu w tym świecie
-                Plant plant = (Plant) this.getNewOrganism(this.getType());
+                Plant plant = (Plant) this.getNewOrganism(this.getType(), this.getNewPosition());
                 this.world.getOrganisms().add(plant);
             }
         }   
