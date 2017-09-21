@@ -54,4 +54,17 @@ public class World {
       }
       return false;
     }
+    
+    public Organism getOrganism(Point position){
+        for (Organism organism : this.organisms){
+            if (organism.getPosition() == position) {
+                return organism;
+            }
+        }
+        return null;
+    }
+    
+    public void removeOrganism(Organism organism){
+        this.organisms.remove(organism);
+    }
 }

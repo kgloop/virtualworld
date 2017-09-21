@@ -7,6 +7,7 @@ package virtualworld.organisms.plants;
 
 import java.awt.Point;
 import virtualworld.World;
+import virtualworld.organisms.Organism;
 
 /**
  *
@@ -20,7 +21,7 @@ public class DeadlyNightshade extends Plant {
     }
     
     @Override
-    public void collision(){
+    public void collision(Organism organism){
         
     }
     

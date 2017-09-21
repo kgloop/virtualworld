@@ -7,6 +7,7 @@ package virtualworld.organisms.animals;
 
 import java.awt.Point;
 import virtualworld.World;
+import virtualworld.organisms.Organism;
 
 /**
  *
@@ -26,7 +27,7 @@ public class Human extends Animal {
     }
     
     @Override
-    public void collision(){
+    public void collision(Organism organism){
         
     }
 

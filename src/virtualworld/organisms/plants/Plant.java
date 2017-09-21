@@ -29,7 +29,7 @@ public abstract class Plant extends Organism {
     }
     
     @Override
-    public void collision(){
+    public void collision(Organism organism){
         
     }
 

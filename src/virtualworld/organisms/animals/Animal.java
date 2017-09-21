@@ -27,6 +27,7 @@ public abstract class Animal extends Organism {
         
         if(this.world.isOrganismAtPoint(newPosition)){
             //kolizja na organiźmie
+            this.collision(this.world.getOrganism(newPosition));
         }
         else{
             this.setPosition(newPosition); //ustawienie nowej pozycji na Animal (samym sobie)
@@ -34,7 +35,21 @@ public abstract class Animal extends Organism {
     }
     
     @Override
-    public void collision(){
-        
+    public void collision(Organism organism){
+        if(this.getType() != organism.getType()){
+            this.differentTypeCollision(organism);
+        }
+        else {
+            //TO DO same types collision
+        }
+    }
+    
+    protected void differentTypeCollision(Organism organism){
+        if(this.getForce() >= organism.getForce()){
+            this.world.removeOrganism(organism);
+        }
+        else{
+            this.world.removeOrganism(this);
+        }
     }
 }

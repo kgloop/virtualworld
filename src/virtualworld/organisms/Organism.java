@@ -30,7 +30,7 @@ public abstract class Organism {
     protected ORGANISM_TYPE type;
     
     public abstract void action(); //abstrakcyjna metoda void, która musi być zawarta w każdej klasie dziedziczącej po klasie Organism
-    public abstract void collision(); //to samo, co wyżej
+    public abstract void collision(Organism organism); //to samo, co wyżej
     public abstract void drawing(); //to samo, co wyżej
     
     public void setPosition(Point position){
@@ -116,5 +116,9 @@ public abstract class Organism {
                 throw new AssertionError(type.name());
         }
                 
+    }
+    
+    public int getForce(){
+        return this.force;
     }
 }
